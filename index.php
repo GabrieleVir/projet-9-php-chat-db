@@ -1,33 +1,37 @@
+<?php
+	require_once 'assets/php/mysql.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Chat box</title>
+	<meta charset="UTF-8">
+	<title>Octochat Becodien</title>
 
-  <!--css links-->
-  <link rel="stylesheet" href="assets/css/main.css">
+	<!-- css links-->
+	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class='chatbox__login'>
-      <p><a href="assets/php/login.php">Login</a></p>
-      <p><a href="assets/php/register.php">Register</a></p>
-    </div>
-    <div class='container' ng-cloak ng-app="chatApp">
-      <h1>TChat</h1>
-    <div class='chatbox' ng-controller="MessageCtrl as chatMessage">
-      <div class='chatbox__user-list'>
-        <h1>User list</h1>
-        <p>Not using it yet !</p>
-      </div>
-      <div class="chatbox__messages" ng-repeat="message in messages">
-        <div class="chatbox__messages__user-message">
-         
-            <?php include 'assets/php/message_db.php'; ?>
+	<article>
+		<div class="messages">
+			<iframe src="assets/php/messages.php" class="iframes" frameborder="0"></iframe>	
+		</div>
 
-        </div>
-      </div>
-    </div>
-
-    <script src="assets/js/chat-js.js"></script>
+		<div class="login_position ecrireMess">
+			<?php 
+				if(isset($_SESSION)):
+			?>
+				<iframe src="assets/php/ecrireMess.php" class="iframes" frameborder="0"></iframe>	
+			<?php
+				else:
+			?>
+				<iframe src="assets/php/login.php" class="iframes" frameborder="0"></iframe>
+			<?php
+				endif;
+			?>
+		</div>
+	</article>
+	
+		
 </body>
 </html>
